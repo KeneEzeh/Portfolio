@@ -106,6 +106,17 @@ function copyVendor() {
   return merge(bootstrap, jquery, easing, fontAwesome, devicons, simpleLineIcons);
 }
 
+function collectDist() {
+  return gulp.src([
+    'index.html',
+    'css/**/*',
+    'js/**/*',
+    'img/**/*',
+    'vendor/**/*'
+  ], { base: '.', allowEmpty: true })
+    .pipe(gulp.dest('dist'));
+}
+
 function serve(done) {
   browserSync.init({
     server: {
@@ -125,6 +136,7 @@ gulp.task('sass', compileSass);
 gulp.task('minify-css', gulp.series(compileSass, minifyCss));
 gulp.task('minify-js', minifyJs);
 gulp.task('copy', copyVendor);
+gulp.task('dist', collectDist);
 gulp.task('browserSync', serve);
 gulp.task('dev', gulp.series(
   gulp.parallel(compileSass, minifyJs),
@@ -134,5 +146,6 @@ gulp.task('dev', gulp.series(
 ));
 gulp.task('default', gulp.series(
   compileSass,
-  gulp.parallel(minifyCss, minifyJs)
+  gulp.parallel(minifyCss, minifyJs),
+  collectDist
 ));
