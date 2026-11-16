@@ -59,6 +59,18 @@ h2 {
 .list-icons .list-inline-item i:hover {
   color: #BD5D38;
 }
+.list-icons .skill-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+}
+.list-icons .skill-icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;

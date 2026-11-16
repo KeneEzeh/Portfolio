@@ -59,4 +59,16 @@ h2 {
       color: $primary;
     }
   }
+  .skill-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    svg {
+      display: block;
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+    }
+  }
 }
